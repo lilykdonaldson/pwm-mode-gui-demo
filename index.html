@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse Generator - PWM Mode</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="unitModeForm">
+        <h1>Alina Lights Pulse Sequence Generator</h1>
+        <h2>PWM Mode</h2>
+
+
+        <label for="globalFrequency">Frequency (Hz) for all Channels:</label>
+        <input type="number" id="globalFrequency" name="globalFrequency">
+
+        <div id="channelControls">
+            <div class="channelPair" style="background-color: lightblue;">
+            <h3>White and Blue</h3>
+            <p>White: 5000K, Blue: 451nm</p>
+            <div class="individualChannelsContainer">
+                <div class="individualChannel">
+                    <h4>White</h4>
+                    <label for="whiteOn">On/Off <input type="checkbox" id="whiteOn" name="whiteOn" style="margin-left: 5px;"></label>
+                    <label>Duty Cycle</label>
+                    <input type="number" id="whiteDutyCycle" name="whiteDutyCycle">
+                </div>
+                <div class="individualChannel">
+                    <h4>Blue</h4>
+                    <div class="labelCheckboxPair">
+                        <label for="blueOn">On/Off <input type="checkbox" id="blueOn" name="blueOn" style="margin-left: 5px;"></label>
+                    </div>
+                    <label>Duty Cycle</label>
+                    <input type="number" id="blueDutyCycle" name="blueDutyCycle">
+                </div>
+            </div>
+            <div class="pairSettings">
+                <h4>Pair Settings</h4>
+                <label>Pair Frequency (Hz):</label>
+                <input type="number" class="pairFrequency" name="whiteBlueFrequency">
+                <label>Phase Shift (%):</label>
+                <input type="number" name="whiteBluePhase" id="whiteBluePhase" min="1" max="1000">
+            </div>
+        </div>
+
+
+        <div class="channelPair" style="background-color: lightgreen;">
+            <h3>Lime and Green</h3>
+            <p>Lime: 548nm, Green 525nm</p>
+            <div class="individualChannelsContainer">
+                <div class="individualChannel">
+                    <h4>Lime</h4>
+                    <label for="limeOn">On/Off <input type="checkbox" id="limeOn" name="limeOn" style="margin-left: 5px;"></label>
+                    <label for="limeDutyCycle">Duty Cycle</label>
+                    <input type="number" id="limeDutyCycle" name="limeDutyCycle">
+                </div>
+                <div class="individualChannel">
+                    <h4>Green</h4>
+                    <label for="greenOn">On/Off <input type="checkbox" id="greenOn" name="greenOn" style="margin-left: 5px;"></label>
+                    <label for="greenDutyCycle">Duty Cycle</label>
+                    <input type="number" id="greenDutyCycle" name="greenDutyCycle">
+                </div>
+            </div>
+            <div class="pairSettings">
+                <h4>Pair Settings</h4>
+                <label for="limeGreenFrequency">Pair Frequency (Hz):</label>
+                <input type="number" class="pairFrequency" name="limeGreenFrequency">
+                <label for="limeGreenPhase">Phase Shift (%):</label>
+                <input type="number" name="limeGreenPhase" id="limeGreenPhase" min="1" max="1000">
+            </div>
+        </div>
+
+        <div class="channelPair" style="background-color: lightpink;">
+            <h3>Deep Red and Far Red</h3>
+            <p>Deep Red: 665nm, Far Red: 735nm</p>
+            <div class="individualChannelsContainer">
+                <div class="individualChannel">
+                    <h4>Deep Red</h4>
+                    <label for="deepRedOn">On/Off <input type="checkbox" id="deepRedOn" name="deepRedOn" style="margin-left: 5px;"></label>
+                    <label for="deepRedDutyCycle">Duty Cycle</label>
+                    <input type="number" id="deepRedDutyCycle" name="deepRedDutyCycle">
+                </div>
+                <div class="individualChannel">
+                    <h4>Far Red</h4>
+                    <label for="farRedOn">On/Off <input type="checkbox" id="farRedOn" name="farRedOn" style="margin-left: 5px;"></label>
+                    <label for="farRedDutyCycle">Duty Cycle</label>
+                    <input type="number" id="farRedDutyCycle" name="farRedDutyCycle">
+                </div>
+            </div>
+            <div class="pairSettings">
+                <h4>Pair Settings</h4>
+                <label for="deepRedFarRedFrequency">Pair Frequency (Hz):</label>
+                <input type="number" class="pairFrequency" name="deepRedFarRedFrequency">
+                <label for="deepRedFarRedPhase">Phase Shift (%):</label>
+                <input type="number" name="deepRedFarRedPhase" id="deepRedFarRedPhase" min="1" max="1000">
+            </div>
+        </div>
+
+        </div>
+        <textarea id="jsonData" name="jsonData" rows="4" cols="50"></textarea><br>
+        <button type="button" id="displaySequence">Display Sequence</button>
+        <button type="button" id="sendSequence">Send Pulsing Sequence</button>
+        <br><br>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
